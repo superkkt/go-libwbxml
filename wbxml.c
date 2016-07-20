@@ -20,10 +20,10 @@ int xml2wbxml(const char *xml, unsigned int xml_len, unsigned char **wbxml, unsi
 	}
 	// Do not add public document type in the encoded WBXML.
 	wbxml_conv_xml2wbxml_disable_public_id(enc);
-        // Do not use string tables because ActiveSync does not use it!
-        wbxml_conv_xml2wbxml_disable_string_table(enc);
-        // Do not ignore white spaces.
-        wbxml_conv_xml2wbxml_enable_preserve_whitespaces(enc);
+	// Do not use string tables because ActiveSync does not use it!
+	wbxml_conv_xml2wbxml_disable_string_table(enc);
+	// Do not ignore white spaces.
+	wbxml_conv_xml2wbxml_enable_preserve_whitespaces(enc);
 	if ((ret = wbxml_conv_xml2wbxml_run(enc, (WB_UTINY *) xml, xml_len, wbxml, wbxml_len)) != WBXML_OK) {
 		goto cleanup;
 	}
